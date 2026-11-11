@@ -1,0 +1,7 @@
+# Your original private photos and story. NEVER push these.
+# Only the encrypted copies in locked/ go to GitHub.
+private/
+
+.DS_Store
+node_modules/
+_site/

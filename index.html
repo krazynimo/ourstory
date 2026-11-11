@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Nidhil and Meenu: our story, our wedding and the life we are building together.">
+<meta name="theme-color" content="#0b0907">
+<!--HEAD-->
+<title>Nidhil &amp; Meenu</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Barlow:wght@300;400;500&family=Barlow+Condensed:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<!--/HEAD-->
+</head>
+<body>
+<!--BODY-->
+<div class="grain" aria-hidden="true"></div>
+
+<nav class="nav" aria-label="Sections">
+  <a class="nav-mark" href="#top" id="navMark">N &amp; M</a>
+  <div class="nav-links">
+    <a href="#starring">Starring</a>
+    <a href="#stills">Stills</a>
+    <a href="#film">Our film</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-photo" id="heroPhoto"></div>
+  <canvas class="dust" id="dust" aria-hidden="true"></canvas>
+  <div class="hero-shade"></div>
+  <div class="wrap hero-in">
+    <p class="hero-pre" id="heroPre"></p>
+    <h1 class="title" id="heroTitle"></h1>
+    <div class="rule" aria-hidden="true"></div>
+    <p class="tagline" id="tagline"></p>
+    <div class="timecode" id="timecode" hidden>
+      <span class="tc-label">Married for</span>
+      <div class="tc-cells" id="tcCells"></div>
+    </div>
+  </div>
+  <a class="scroll-cue" href="#starring" aria-label="Scroll to the story"><span></span></a>
+  <div class="bar bar-t" aria-hidden="true"></div>
+  <div class="bar bar-b" aria-hidden="true"></div>
+</header>
+
+<main>
+  <section class="starring" id="starring">
+    <div class="wrap">
+      <h2 class="h-sec">Starring</h2>
+      <div class="leads" id="leads"></div>
+    </div>
+  </section>
+
+  <section class="stills" id="stills">
+    <div class="wrap">
+      <h2 class="h-sec">Stills</h2>
+      <p class="lede" id="stillsLede"></p>
+    </div>
+    <div class="strip" id="strip"></div>
+  </section>
+
+  <section class="feature" id="film">
+    <div class="wrap" id="gateWrap">
+      <h2 class="h-sec">The feature</h2>
+      <p class="lede">Our journey, the wedding and the highlights are for family and friends. Enter the password we shared with you.</p>
+      <form class="ticket" id="gate" autocomplete="off">
+        <div class="ticket-main">
+          <span class="ticket-kicker">Admit our people</span>
+          <strong class="ticket-name" id="ticketName"></strong>
+          <label for="pw">Password</label>
+          <input id="pw" name="pw" type="password" autocomplete="off" spellcheck="false" required>
+          <p class="gate-msg" id="gateMsg" role="alert"></p>
+        </div>
+        <div class="ticket-stub">
+          <button type="submit" id="gateBtn">Open the film</button>
+        </div>
+      </form>
+    </div>
+    <div class="vault" id="vault" hidden></div>
+  </section>
+</main>
+
+<footer class="credits">
+  <div class="wrap">
+    <p class="fin" id="fin"></p>
+    <dl class="billing" id="billing"></dl>
+    <p class="small" id="footNote"></p>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous photo">&#8249;</button>
+  <figure class="lb-fig">
+    <img id="lbImg" alt="">
+    <figcaption><span id="lbCap"></span><span class="lb-count" id="lbCount"></span></figcaption>
+  </figure>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next photo">&#8250;</button>
+</div>
+
+<script src="js/content.js"></script>
+<script src="js/main.js"></script>
+<!--/BODY-->
+</body>
+</html>
