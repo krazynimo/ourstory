@@ -91,7 +91,7 @@ a { color: var(--gold-hi); }
 }
 .hero-photo {
   position: absolute; inset: -4%; z-index: -3;
-  background: var(--ink-2) center/cover no-repeat;
+  background: var(--ink-2) 74% 50%/cover no-repeat;
   animation: kenburns 36s ease-in-out infinite alternate;
 }
 @keyframes kenburns { from { transform: scale(1) translate(0, 0); } to { transform: scale(1.12) translate(-1.5%, -2%); } }
@@ -99,7 +99,7 @@ a { color: var(--gold-hi); }
 .hero-shade {
   position: absolute; inset: 0; z-index: -1;
   background:
-    radial-gradient(ellipse at 50% 45%, rgba(11, 9, 7, .25) 0%, rgba(11, 9, 7, .78) 70%, var(--ink) 100%),
+    radial-gradient(ellipse at 50% 45%, rgba(11, 9, 7, .42) 0%, rgba(11, 9, 7, .78) 70%, var(--ink) 100%),
     linear-gradient(to bottom, rgba(11, 9, 7, .55), transparent 30%, transparent 62%, var(--ink) 100%);
 }
 .hero-in { padding-block: 120px 110px; width: 100%; }
@@ -110,8 +110,9 @@ a { color: var(--gold-hi); }
 .title {
   margin: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline;
   column-gap: .22em; row-gap: 0;
-  font: 400 clamp(3.4rem, 12vw, 10.5rem)/.95 var(--display);
+  font: 500 clamp(3.4rem, 12vw, 10.5rem)/.95 var(--display);
   letter-spacing: -.015em;
+  filter: drop-shadow(0 2px 16px rgba(0, 0, 0, .6));
 }
 .title .word { display: inline-flex; }
 .title .ch {
