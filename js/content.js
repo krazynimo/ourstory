@@ -16,6 +16,9 @@ window.SITE = {
   // Set to "" to hide the counter.
   weddingDate: "2021-11-29",
 
+  // Shown under the date as you scroll past the opening, and in the moving band
+  place: "Kayamkulam, Kerala",
+
   // Full-width photo behind the names (landscape, about 2400px wide)
   hero: "assets/photos/hero.jpg",
 

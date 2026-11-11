@@ -7,15 +7,32 @@
 <meta name="theme-color" content="#0b0907">
 <!--HEAD-->
 <title>Nidhil &amp; Meenu</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Barlow:wght@300;400;500&family=Barlow+Condensed:wght@400;500&display=swap">
 <link rel="stylesheet" href="css/style.css">
+<script>document.documentElement.classList.add("js");</script>
 <!--/HEAD-->
 </head>
 <body>
 <!--BODY-->
-<div class="grain" aria-hidden="true"></div>
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="ld-half ld-top"></div>
+  <div class="ld-half ld-bot"></div>
+  <div class="ld-core" id="ldCore">
+    <svg class="ld-ring" viewBox="0 0 120 120">
+      <circle cx="60" cy="60" r="54"/><circle cx="60" cy="60" r="44"/>
+      <line x1="60" y1="2" x2="60" y2="118"/><line x1="2" y1="60" x2="118" y2="60"/>
+      <circle class="ld-arc" cx="60" cy="60" r="27" pathLength="100"/>
+    </svg>
+    <span class="ld-num" id="ldNum">3</span>
+    <p class="ld-cap" id="ldCap"></p>
+  </div>
+</div>
 
-<nav class="nav" aria-label="Sections">
+<div class="cursor" id="cursor" aria-hidden="true"><span id="cursorLabel"></span></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="wipe" id="wipe" aria-hidden="true"></div>
+
+<nav class="nav" id="nav" aria-label="Sections">
   <a class="nav-mark" href="#top" id="navMark">N &amp; M</a>
   <div class="nav-links">
     <a href="#starring">Starring</a>
@@ -24,9 +41,11 @@
   </div>
 </nav>
 
-<header class="hero" id="top">
+<aside class="chapters" id="chapters" aria-hidden="true"></aside>
+
+<header class="hero" id="top" data-chapter="Opening">
   <div class="hero-photo" id="heroPhoto"></div>
-  <canvas class="dust" id="dust" aria-hidden="true"></canvas>
+  <canvas class="hero-gl" id="gl" aria-hidden="true"></canvas>
   <div class="hero-shade"></div>
   <div class="wrap hero-in">
     <p class="hero-pre" id="heroPre"></p>
@@ -38,49 +57,50 @@
       <div class="tc-cells" id="tcCells"></div>
     </div>
   </div>
+  <div class="since" id="since" aria-hidden="true"></div>
   <a class="scroll-cue" href="#starring" aria-label="Scroll to the story"><span></span></a>
-  <div class="bar bar-t" aria-hidden="true"></div>
-  <div class="bar bar-b" aria-hidden="true"></div>
 </header>
 
+<div class="marquee" id="marquee" aria-hidden="true"></div>
+
 <main>
-  <section class="starring" id="starring">
+  <section class="starring" id="starring" data-chapter="Starring">
     <div class="wrap">
       <h2 class="h-sec">Starring</h2>
       <div class="leads" id="leads"></div>
     </div>
   </section>
 
-  <section class="stills" id="stills">
-    <div class="wrap">
-      <h2 class="h-sec">Stills</h2>
-      <p class="lede" id="stillsLede"></p>
+  <section class="stills" id="stills" data-chapter="Stills">
+    <div class="st-pin" id="stPin">
+      <div class="st-track" id="strip"></div>
     </div>
-    <div class="strip" id="strip"></div>
   </section>
 
-  <section class="feature" id="film">
-    <div class="wrap" id="gateWrap">
+  <section class="feature" id="film" data-chapter="The feature">
+    <div class="wrap gate-wrap" id="gateWrap">
       <h2 class="h-sec">The feature</h2>
-      <p class="lede">Our journey, the wedding and the highlights are for family and friends. Enter the password we shared with you.</p>
-      <form class="ticket" id="gate" autocomplete="off">
-        <div class="ticket-main">
-          <span class="ticket-kicker">Admit our people</span>
-          <strong class="ticket-name" id="ticketName"></strong>
-          <label for="pw">Password</label>
-          <input id="pw" name="pw" type="password" autocomplete="off" spellcheck="false" required>
-          <p class="gate-msg" id="gateMsg" role="alert"></p>
-        </div>
-        <div class="ticket-stub">
-          <button type="submit" id="gateBtn">Open the film</button>
-        </div>
-      </form>
+      <p class="lede" data-rv>Our journey, the wedding and the highlights are for family and friends. Enter the password we shared with you.</p>
+      <div class="ticket-scene" data-rv>
+        <form class="ticket" id="gate" autocomplete="off">
+          <div class="ticket-main">
+            <span class="ticket-kicker">Admit our people</span>
+            <strong class="ticket-name" id="ticketName"></strong>
+            <label for="pw">Password</label>
+            <input id="pw" name="pw" type="password" autocomplete="off" spellcheck="false" required>
+            <p class="gate-msg" id="gateMsg" role="alert"></p>
+          </div>
+          <div class="ticket-stub">
+            <button type="submit" id="gateBtn">Open the film</button>
+          </div>
+        </form>
+      </div>
     </div>
     <div class="vault" id="vault" hidden></div>
   </section>
 </main>
 
-<footer class="credits">
+<footer class="credits" id="credits" data-chapter="Credits">
   <div class="wrap">
     <p class="fin" id="fin"></p>
     <dl class="billing" id="billing"></dl>
@@ -98,6 +118,17 @@
   <button class="lb-nav lb-next" id="lbNext" aria-label="Next photo">&#8250;</button>
 </div>
 
+<div class="vmodal" id="vmodal" hidden role="dialog" aria-modal="true" aria-label="Video player">
+  <button class="lb-close" id="vmClose" aria-label="Close">&times;</button>
+  <div class="vm-box">
+    <div class="vm-frame" id="vmFrame"></div>
+    <p class="vm-cap"><span id="vmTitle"></span><a id="vmLink" href="#" target="_blank" rel="noopener">Watch on YouTube</a></p>
+  </div>
+</div>
+
+<script src="js/vendor/gsap.min.js"></script>
+<script src="js/vendor/ScrollTrigger.min.js"></script>
+<script src="js/vendor/lenis.min.js"></script>
 <script src="js/content.js"></script>
 <script src="js/main.js"></script>
 <!--/BODY-->
