@@ -13,8 +13,8 @@ window.SITE = {
   tagline: "Two people, one long road, and a great many photographs.",
 
   // Your wedding date, YYYY-MM-DD. Drives the "Married for" counter.
-  // Set to "" to hide the counter.          <-- PLACEHOLDER, CHANGE ME
-  weddingDate: "2021-01-01",
+  // Set to "" to hide the counter.
+  weddingDate: "2021-11-29",
 
   // Full-width photo behind the names (landscape, about 2400px wide)
   hero: "assets/photos/hero.jpg",
@@ -23,25 +23,25 @@ window.SITE = {
   people: [
     {
       name: "Nidhil",
-      line: "A line or two about Nidhil goes here. What he does, what he loves, what Meenu would say about him.",
+      line: "Turning everyday moments into gold. Travel, life, stories.",
       photo: "assets/photos/nidhil.jpg",
-      instagram: { handle: "@add_nidhil_handle", url: "https://www.instagram.com/" },
+      instagram: { handle: "@thenimoverse", url: "https://www.instagram.com/thenimoverse/" },
       // Favourite posts: a picture and the link to the post
       posts: [
-        { img: "assets/photos/n-post-1.jpg", url: "https://www.instagram.com/" },
-        { img: "assets/photos/n-post-2.jpg", url: "https://www.instagram.com/" },
-        { img: "assets/photos/n-post-3.jpg", url: "https://www.instagram.com/" }
+        { img: "assets/photos/n-post-1.jpg", url: "https://www.instagram.com/p/CTQExaiB1CK/" },
+        { img: "assets/photos/n-post-2.jpg", url: "https://www.instagram.com/p/Bmp8AO3gPrh/" },
+        { img: "assets/photos/n-post-3.jpg", url: "https://www.instagram.com/p/CTPBhQtlCod/" }
       ]
     },
     {
       name: "Meenu",
-      line: "A line or two about Meenu goes here. What she does, what she loves, what Nidhil would say about her.",
+      line: "Saree, travel, vibes.",
       photo: "assets/photos/meenu.jpg",
-      instagram: { handle: "@add_meenu_handle", url: "https://www.instagram.com/" },
+      instagram: { handle: "@its.simplymeenu", url: "https://www.instagram.com/its.simplymeenu/" },
       posts: [
-        { img: "assets/photos/m-post-1.jpg", url: "https://www.instagram.com/" },
-        { img: "assets/photos/m-post-2.jpg", url: "https://www.instagram.com/" },
-        { img: "assets/photos/m-post-3.jpg", url: "https://www.instagram.com/" }
+        { img: "assets/photos/m-post-1.jpg", url: "https://www.instagram.com/p/DfkGMgIGnBW/" },
+        { img: "assets/photos/m-post-2.jpg", url: "https://www.instagram.com/p/DapBL_qmi9n/" },
+        { img: "assets/photos/m-post-3.jpg", url: "https://www.instagram.com/p/DTu3dMfk_Q0/" }
       ]
     }
   ],
@@ -56,7 +56,9 @@ window.SITE = {
     "assets/photos/still-5.jpg",
     "assets/photos/still-6.jpg",
     "assets/photos/still-7.jpg",
-    "assets/photos/still-8.jpg"
+    "assets/photos/still-8.jpg",
+    "assets/photos/still-9.jpg",
+    "assets/photos/still-10.jpg"
   ],
 
   // End credits
@@ -64,7 +66,7 @@ window.SITE = {
   credits: [
     ["Starring", "Nidhil & Meenu"],
     ["Supporting cast", "Add family and friends here"],
-    ["Filmed on location in", "Add the places that matter to you"],
+    ["Married at", "Mikas Convention Centre, Kayamkulam, Kerala"],
     ["Wedding films by", "Foxeye Media & Frames For You"]
   ],
   footNote: "Made with love by the two of us."
