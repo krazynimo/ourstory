@@ -7,7 +7,9 @@
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const fine = matchMedia("(hover: hover) and (pointer: fine)").matches;
   const G = window.gsap, ST = window.ScrollTrigger;
-  const motion = !!(G && ST) && !reduce;
+  // Devices set to "reduce motion" get the calm version, with a button to play the full one.
+  let motionPref = null; try { motionPref = localStorage.getItem("nm-motion"); } catch (e) {}
+  const motion = !!(G && ST) && (!reduce || motionPref === "on");
   root.classList.add(motion ? "motion" : "static");
   if (motion) { G.registerPlugin(ST); ST.config({ ignoreMobileResize: true }); G.defaults({ ease: "expo.out", duration: 1.2 }); }
 
@@ -106,6 +108,15 @@
     gx.putImageData(im, 0, 0);
     $(".grain").style.backgroundImage = `url(${g.toDataURL()})`;
   } catch (e) { /* optional */ }
+
+  if (reduce && G && ST) {
+    const b = document.createElement("button");
+    b.className = "motion-toggle"; b.type = "button";
+    b.textContent = motion ? "Switch to the calm version" : "Play the full experience";
+    b.onclick = () => { try { localStorage.setItem("nm-motion", motion ? "off" : "on"); } catch (e) {} scrollTo(0, 0); location.reload(); };
+    (motion ? $(".credits .wrap") : document.body).appendChild(b);
+    if (!motion) b.classList.add("float");
+  }
 
   /* =============================== smooth scroll =============================== */
   let lenis = null;

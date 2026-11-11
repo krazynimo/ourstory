@@ -337,6 +337,10 @@ img[data-enc].ready { opacity: 1; }
 .billing dd { margin: 0; font: 500 clamp(1.3rem, 3.2vw, 2.1rem)/1.15 var(--bill); letter-spacing: .14em; text-transform: uppercase; text-wrap: balance; }
 .small { margin: clamp(56px, 8vw, 100px) 0 0; font-size: .9rem; color: var(--mute); }
 
+.motion-toggle { display: inline-block; margin-top: 28px; background: none; border: 1px solid var(--gold-lo); color: var(--gold-hi); padding: .9rem 1.3rem; font: 500 .9rem/1 var(--bill); letter-spacing: .2em; text-transform: uppercase; cursor: pointer; }
+.motion-toggle.float { position: fixed; z-index: 70; margin: 0; left: max(20px, env(safe-area-inset-left, 0px)); bottom: calc(20px + env(safe-area-inset-bottom, 0px)); background: var(--gold-hi); color: var(--ink); border-color: var(--gold-hi); box-shadow: 0 14px 40px rgba(0, 0, 0, .6); }
+.motion-toggle:hover { background: var(--gold); color: var(--ink); }
+
 /* ---------- lightbox + video ---------- */
 .lightbox, .vmodal { position: fixed; inset: 0; z-index: 85; background: rgba(5, 4, 3, .97); display: grid; align-items: center; padding: calc(16px + env(safe-area-inset-top, 0px)) max(8px, env(safe-area-inset-right, 0px)) calc(16px + env(safe-area-inset-bottom, 0px)) max(8px, env(safe-area-inset-left, 0px)); animation: fade .4s ease; }
 @keyframes fade { from { opacity: 0; } }
@@ -368,6 +372,6 @@ img[data-enc].ready { opacity: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .grain, .scroll-cue span, .ld-arc, .mq-track { animation: none !important; }
-  * { transition-duration: .01ms !important; }
+  .static .grain, .static .scroll-cue span, .static .mq-track { animation: none !important; }
+  .static * { transition-duration: .01ms !important; }
 }
