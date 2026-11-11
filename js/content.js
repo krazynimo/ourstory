@@ -68,7 +68,6 @@ window.SITE = {
   fin: "To be continued",
   credits: [
     ["Starring", "Nidhil & Meenu"],
-    ["Supporting cast", "Add family and friends here"],
     ["Married at", "Mikas Convention Centre, Kayamkulam, Kerala"],
     ["Wedding films by", "Foxeye Media & Frames For You"]
   ],
