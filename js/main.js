@@ -88,6 +88,14 @@
       <div class="st-end">The rest is in <a href="#film">the feature</a>.</div>`;
   } else $("#stills").hidden = true;
 
+  // films: public, play in the page
+  const films = S.films || [];
+  if (films.length) {
+    const box = $("#reels"); box._hl = films;
+    box.innerHTML = films.map((r, k) => { const inner = `<div class="reel-pic mask"><img src="${esc(safeUrl(r.thumb))}" alt="" loading="lazy"><span class="reel-play"></span><div class="reel-meta"><h3>${esc(r.title)}</h3><span>${esc(r.note)}</span></div></div>`;
+      return /(?:[?&]v=|youtu\.be\/)[\w-]{11}/.test(r.url || "") ? `<button class="reel" type="button" data-v="${k}" data-cur="Play">${inner}</button>` : `<a class="reel" href="${esc(safeUrl(r.url))}" target="_blank" rel="noopener" data-cur="Open">${inner}</a>`; }).join("");
+  } else $("#films").hidden = true;
+
   // credits
   const finChars = split($("#fin"), S.fin || "");
   $("#billing").innerHTML = (S.credits || []).map(([k, v]) => `<div data-rv><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("");
@@ -400,7 +408,7 @@
         <div class="reels">${hl.map((r, k) => { const yt = ytId(r.url); const inner = `<div class="reel-pic mask">${encImg(r.thumb, "")}<span class="reel-play"></span><div class="reel-meta"><h3>${esc(r.title)}</h3><span>${esc(r.note)}</span></div></div>`;
           return yt ? `<button class="reel" type="button" data-v="${k}" data-cur="Play">${inner}</button>` : `<a class="reel" href="${esc(safeUrl(r.url))}" target="_blank" rel="noopener" data-cur="Open">${inner}</a>`; }).join("")}</div></section>` : ""}
       <div class="wrap"><button class="relock" type="button" id="relock">Lock the film again</button></div>`;
-    vault._hl = hl;
+    const vr = $(".reels", vault); if (vr) vr._hl = hl;
     wallCols = 0; layoutWall();
     $$("img[data-enc]", vault).forEach((im) => (lazy ? lazy.observe(im) : fill(im)));
     $("#relock").onclick = () => { try { sessionStorage.removeItem(KEY); } catch (e) {} location.reload(); };
@@ -476,8 +484,8 @@
   vault.addEventListener("click", (e) => {
     const s = e.target.closest(".shot");
     if (s) { lastFocus = s; lb.hidden = false; lockScroll(true); cur = +s.dataset.k; showShot(cur, s); $("#lbClose").focus(); return; }
-    const v = e.target.closest(".reel[data-v]"); if (v) openVideo(vault._hl[+v.dataset.v], v);
   });
+  document.addEventListener("click", (e) => { const v = e.target.closest(".reel[data-v]"); if (v) openVideo(v.closest(".reels")._hl[+v.dataset.v], v); });
   $("#lbClose").onclick = closeLb;
   $("#lbPrev").onclick = () => showShot(cur - 1);
   $("#lbNext").onclick = () => showShot(cur + 1);

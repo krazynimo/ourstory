@@ -178,7 +178,8 @@ button { font: inherit; color: inherit; }
 
 /* ---------- shared ---------- */
 main { overflow-x: clip; }
-.starring, .feature { padding-block: clamp(84px, 12vw, 180px); }
+.starring, .films, .feature { padding-block: clamp(84px, 12vw, 180px); }
+.films { padding-bottom: 0; }
 .h-sec { margin: 0 0 1.2rem; font: italic 400 clamp(2.8rem, 7.4vw, 6.6rem)/1 var(--display); text-wrap: balance; }
 .h-sec .sw { display: inline-block; overflow: hidden; vertical-align: top; padding: .12em .1em .22em; margin: -.12em -.1em -.22em; }
 .h-sec .sc { display: inline-block; will-change: transform; }

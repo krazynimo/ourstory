@@ -50,7 +50,7 @@ window.SITE = {
   ],
 
   // The moving film strip. These photos are PUBLIC. Add as many as you like.
-  stillsLede: "A few frames anyone can see. The rest is behind the ticket below.",
+  stillsLede: "A few frames anyone can see. The rest is behind the ticket further down.",
   stills: [
     "assets/photos/still-1.jpg",
     "assets/photos/still-2.jpg",
@@ -62,6 +62,12 @@ window.SITE = {
     "assets/photos/still-8.jpg",
     "assets/photos/still-9.jpg",
     "assets/photos/still-10.jpg"
+  ],
+
+  // Your films. These are PUBLIC and play inside the page.
+  films: [
+    { title: "Wedding highlight film", note: "Foxeye Media, 8 min", url: "https://www.youtube.com/watch?v=apO282gVuZA&t=350s", thumb: "assets/photos/film-1.jpg" },
+    { title: "Kerala wedding highlights", note: "Frames For You, 5 min", url: "https://www.youtube.com/watch?v=vYdg1T7YSGY", thumb: "assets/photos/film-2.jpg" }
   ],
 
   // End credits
